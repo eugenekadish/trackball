@@ -24,7 +24,7 @@ To checkout how this module can be used, open the contents of the *example* fold
 
 ## Documentation
 
-__Trackball(__*mode*__,__*scene*__)__
+__Trackball(__*mode*__,__ *scene*__)__
 
 Wrapper for emulating rotation transformations. This method must be called in order to instantiate and make available all other functions. The transformation is internally stored based on the boolean *mode* parameter. Setting it to __true__ uses the intended quaternion representation. With __false__ the transformations will be done solely with matrix multiplication. This functionality could be used to quickly compare the advantages of the quaternion approach. The second parameter, *scene*, is the *canvas* tag the transformations will be used in. It provides dimensional parameters that are needed to accurately interpolate the cursor position.
     
