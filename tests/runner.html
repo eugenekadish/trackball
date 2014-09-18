@@ -3,13 +3,19 @@
   <head>
     <meta charset="utf-8">
     <title> Testing </title>
+    <link rel="stylesheet" href="../components/qunit/qunit/qunit.css">
   </head>
   <body>
+  
     <div id="qunit"></div>
     <div id="qunit-fixture"></div>
+
+    <canvas id="scene" width="500" height="500"> </canvas>
+
     <script src="../components/qunit/qunit/qunit.js"></script>
     <script src="../components/gl-matrix/dist/gl-matrix.js"></script>
-    <script src="../src/trackball.js"></script>
+    <script src="../source/trackball.js"></script>
     <script src="tests.js"></script>
+  
   </body>
 </html>
