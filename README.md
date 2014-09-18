@@ -26,11 +26,11 @@ To checkout how this module can be used, open the contents of the *example* fold
 
 __Trackball(__*mode*__,__ *scene*__)__
 
-Wrapper for emulating rotation transformations. This method must be called in order to instantiate and make available all other functions. The transformation is internally stored based on the boolean *mode* parameter. Setting it to __true__ uses the intended quaternion representation. With __false__ the transformations will be done solely with matrix multiplication. This functionality could be used to quickly compare the advantages of the quaternion approach. The second parameter, *scene*, is the *canvas* tag the transformations will be used in. It provides dimensional parameters that are needed to accurately interpolate the cursor position.
+> Wrapper for emulating rotation transformations. This method must be called in order to instantiate and make available all other functions. The transformation is internally stored based on the boolean *mode* parameter. Setting it to __true__ uses the intended quaternion representation. With __false__ the transformations will be done solely with matrix multiplication. This functionality could be used to quickly compare the advantages of the quaternion approach. The second parameter, *scene*, is the *canvas* tag the transformations will be used in. It provides dimensional parameters that are needed to accurately interpolate the cursor position.
     
 __this.orientation(__*v*__)__
     
-Calculates the angular proximity of six rectilinear unit vectors from *v*. Where *v* is a three dimensional vector represented simply as a three element array. The value returned is the index of the unit vector closest to *v* as enumerated in the list.
+> Calculates the angular proximity of six rectilinear unit vectors from *v*. Where *v* is a three dimensional vector represented simply as a three element array. The value returned is the index of the unit vector closest to *v* as enumerated in the list.
 
     0 : <  1,  0,  0 >
     1 : < -1,  0,  0 >
@@ -39,23 +39,23 @@ Calculates the angular proximity of six rectilinear unit vectors from *v*. Where
     4 : <  0,  0,  1 >
     5 : <  0,  0, -1 >
 
-This function can be useful in determining the relative state of the current transformation.
+> This function can be useful in determining the relative state of the current transformation.
 
 __this.interpolate(__*xPos*__,__ *yPos*__)__
     
-Maps the horizontal and vertical raw pixel coordinates of the cursor position to the range [-1, 1]. *xPos* and *yPos* are the horizontal and vertical pixel position of the cursor in the window respectively. The return value is a two element tuple, which is the horizontal and vertical pixel positions of the cursor mapped to the range [-1, 1].
+> Maps the horizontal and vertical raw pixel coordinates of the cursor position to the range [-1, 1]. *xPos* and *yPos* are the horizontal and vertical pixel position of the cursor in the window respectively. The return value is a two element tuple, which is the horizontal and vertical pixel positions of the cursor mapped to the range [-1, 1].
 
 __this.push(__*xPos*__,__ *yPos*__)__
     
-Initializes internal state of the rotation transformation. *xPos* and *yPos* are the interpolated horizontal and vertical positions of the cursor each mapped to be in the range [-1, 1]. 
+> Initializes internal state of the rotation transformation. *xPos* and *yPos* are the interpolated horizontal and vertical positions of the cursor each mapped to be in the range [-1, 1]. 
 
 __this.move(__*xPos*__,__ *yPos*__)__
     
-Updates the internal state of the rotation transformation. *xPos* and *yPos* are the interpolated horizontal and vertical positions of the cursor, each have to be interpolated to be in the range [-1, 1]. 
+> Updates the internal state of the rotation transformation. *xPos* and *yPos* are the interpolated horizontal and vertical positions of the cursor, each have to be interpolated to be in the range [-1, 1]. 
 
 __this.release()__
     
-Disables updating of the internal state of the transformation.
+> Disables updating of the internal state of the transformation.
 
 ## Usage
 
