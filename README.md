@@ -1,10 +1,6 @@
 # Trackball
 
-> Enables accurate 3D rotations.
-
-## Summary
-
-When applying transformations in 3D space, stacking rotation matrices can lead to unintended consequences as a result of numerical error. The rotations become imprecise occasionally falling a full 180 degrees out of phase, and may cause additional anomalies such as gimbal lock. A solution to these and other unintended consequences is the use of a mathematical construct called [quaternions](http://en.wikipedia.org/wiki/Quaternion). These are four element tuples that extend the complex numbers. Each such four dimensional vector can represent a rotation in three dimensions, and can be converted to the associated rotation matrix. The quaternion offers several advantages for handling compositions of rotations over straight forward matrix multiplication, including ease of computation, compact representation, and solves the inaccuracies mentioned. Two rotations represented by quaternions can be composed into one by a vector product, a calculation that requires a fraction of the operations needed to perform the corresponding matrix multiplication. Also, since changing the magnitude of a quaternion will not affect the rotation it represents, after each composition of two rotations the resultant vector can be normalized before cast as a rotation matrix. This additional step removes the issues experienced with a straightforward matrix products, as numerical errors are smoothed out during normalization and do not accumulate. This module abstracts away the mathematics and applies quaternions to enable accurate user interaction of a rotation transform in a 3D scene. Additionally, vertex and fragment shaders are provided in the *example* that perform texturing.
+Wrapper for the implementation of a quaternion to emulate accurate rotations of objects in three dimensions. This module abstracts away the mathematics and provides functionality for emulating many modern computer desktop interactivity features. Additionally, vertex and fragment shaders are provided in the *example* that perform texturing.
 
 ## Setup
 
