@@ -98,7 +98,7 @@
   // Set the locations and data of uniform variables.
   shaderProgram.projectionUniform = gl.getUniformLocation(shaderProgram, 'projection');
   shaderProgram.modelviewUniform  = gl.getUniformLocation(shaderProgram, 'modelview');
-  shaderProgram.samplerUniform    = gl.getUniformLocation(shaderProgram, "sampler");
+  shaderProgram.samplerUniform    = gl.getUniformLocation(shaderProgram, 'sampler');
 
   gl.uniformMatrix4fv(shaderProgram.projectionUniform, false, projectionMatrix);
   gl.uniformMatrix4fv(shaderProgram.modelviewUniform, false, modelviewMatrix);
