@@ -2,8 +2,6 @@
 
 Wrapper for the implementation of a quaternion to emulate accurate rotations of objects in three dimensions. This module abstracts away the mathematics and provides functionality for emulating many modern computer desktop interactivity features. Additionally, vertex and fragment shaders are provided in the *example* that perform texturing.
 
-## Setup
-
 The dependencies are the [gl-matrix](https://github.com/toji/gl-matrix) matrix and javascript library, along with the [qunit](http://qunitjs.com) unit testing framework. To run the tests and verify everything is working correctly, navigate to the *runner.html* file in the tests directory with any modern browser. To avoid downloading these packages manually, the command
 
     bower install
