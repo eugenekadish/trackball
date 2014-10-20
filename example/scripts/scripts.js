@@ -3,11 +3,12 @@
  */
 (function(){
   
+  var gl;  
   var scene = document.getElementById('scene');
 
   // Check that the browser has WebGL support.
   try {
-    var gl = scene.getContext('webgl');
+    gl = scene.getContext('webgl');
   } catch(e){
     if(!gl){
       alert(' WebGL could not be initialized.');
