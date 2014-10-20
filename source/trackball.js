@@ -130,7 +130,8 @@ function Trackball(mode, scene){
       }
 
       vec3.normalize(finalPosition, finalPosition);
-
+      
+      // angle = vec3.angle(initialPosition, finalPosition);
       cosine = vec3.dot(initialPosition, finalPosition);
 
       if(cosine > 1.0){
