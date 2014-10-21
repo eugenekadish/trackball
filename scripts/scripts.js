@@ -3,16 +3,25 @@
  */
 (function(){
   
+  var gl;
+  var cursor;
+  
   var scene = document.getElementById('scene');
 
+  // Enable click and drag functionality for the triangles in the buffer.
+  var t = new Trackball(true, scene);  
+  
   // Check that the browser has WebGL support.
   try {
-    var gl = scene.getContext('webgl');
+    gl = scene.getContext('webgl');
   } catch(e){
     if(!gl){
       alert(' WebGL could not be initialized.');
     }
   }
+  
+  var modeOne = document.getElementById('modeOne');
+  var modeTwo = document.getElementById('modeTwo');
 
   var windowWidth  = scene.width;
   var windowHeight = scene.height;
@@ -62,7 +71,7 @@
   
   var shaderProgram = shaderImport(['shaders/vertex.glsl', 'shaders/fragment.glsl'], gl);
   
-  gl.clearColor(0.0, 0.0, 0.0, 1.0);
+  gl.clearColor(0.0, 0.0, 0.8, 1.0);
   gl.viewport(0, 0, windowWidth, windowHeight);
   gl.useProgram(shaderProgram);
 
@@ -126,11 +135,6 @@
     gl.drawArrays(gl.TRIANGLES, 0, 36);
   }
 
-  // Enable click and drag functionality for the triangles in the buffer.
-  // var t = new Trackball(true);
-  var t = new Trackball(true, scene);  
-
-  var cursor;
 
   scene.onmousedown = function(event){
 
@@ -161,5 +165,32 @@
     t.release();
     // t.start();
   };
+
+  modeOne.onclick = function(event){
+    
+    modeOne.setAttribute("disabled", "true");
+    modeTwo.removeAttribute("disabled");
+    
+    t = new Trackball(true, scene);
+     
+    gl.clearColor(0.1, 0.1, 0.8, 1.0);
+    gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+    // gl.uniformMatrix4fv(shaderProgram.modelviewUniform, false, temporaryModelviewMatrix);
+    gl.drawArrays(gl.TRIANGLES, 0, 36);
+  };
+
+  
+  modeTwo.onclick = function(event){
+    
+    modeTwo.setAttribute("disabled", "true");
+    modeOne.removeAttribute("disabled");    
+
+    t = new Trackball(false, scene);  
+    
+    gl.clearColor(0.8, 0.1, 0.1, 1.0);
+    gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+    // gl.uniformMatrix4fv(shaderProgram.modelviewUniform, false, temporaryModelviewMatrix);
+    gl.drawArrays(gl.TRIANGLES, 0, 36);
+ };
 
 })();

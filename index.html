@@ -4,11 +4,47 @@
     <meta charset="utf-8">
     <title> Example </title>
     <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="https://rawgit.com/twbs/bootstrap/master/dist/css/bootstrap.css">
   </head>
   <body>
-    
-    <canvas id="scene" width="500" height="500"> </canvas>
-    
+
+    <div class="container"> 
+      <div class="row">
+  
+        <div class="col-sm-8">
+            <canvas id="scene" width="512" height="512"> </canvas>
+        </div>
+        
+        <div class="col-sm-4">
+
+          <table>
+            <tr>
+              <td>
+                <div id="modeOne"  class="setter btn btn-lg n btn-primary" role="button" disabled>
+                  Trackball 
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div id="modeTwo" class="setter btn btn-lg btn-danger" role="button"> 
+                  Default 
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>
+                  To see the difference a quaternion makes in tracking rotation transformations, enable it by clicking the <em> Trackball </em> button. Drag the cube around and switch back by clicking <em> Default </em>. Notice how much more closely the cube follows the interactions of the mouse with the quaternion as opposed to using just a matrix stack.
+                </p>
+              </td>
+            </tr>
+          </table>
+        </div>
+
+      </div>
+    </div>
+
     <script src="https://rawgit.com/eugenekadish/graphics-import/master/source/shader-import.js"></script> 
     <script src="//cdnjs.cloudflare.com/ajax/libs/gl-matrix/2.1.0/gl-matrix-min.js"></script>
     <script src="https://rawgit.com/eugenekadish/trackball/master/source/trackball.js"></script>
