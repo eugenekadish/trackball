@@ -68,7 +68,7 @@ function Trackball(mode, scene){
     });
 
     return index;
-  }
+  };
 
   /**
    * Maps the horizontal and vertical components of the pixel position of the cursor to the interval [-1, 1].
@@ -89,7 +89,7 @@ function Trackball(mode, scene){
      // interval [-1, 1] in the horizontal and vertical directions.      
      return [(xPos - leftEdge - windowWidth / 2.0) / (windowWidth / 2.0), 
                 (windowHeight / 2.0 + topEdge - yPos) / (windowHeight / 2.0)];
-  }
+  };
    
   /**
    * Sets up the initial configuration for rotating objects in the scene.
@@ -111,7 +111,7 @@ function Trackball(mode, scene){
 
     // date = new Date();
     // initialTime = date.getTime();
-  } 
+  }; 
    
   /**
    * Updates the configuration of the scene as the cursor is dragged across the widget.
@@ -168,14 +168,14 @@ function Trackball(mode, scene){
       // angularVelocity = angle / (finalTime - initialTime);
       // initialTime = finalTime;
     }
-  }
+  };
 
   /**
    * Sets a variable to stop keeping track of the mouse motion.
    */
   this.release = function(){
     mousePressed = false;
-  }
+  };
 
   /**
    * Updates the configuration of the scene as the cursor is dragged across the widget.
@@ -184,7 +184,7 @@ function Trackball(mode, scene){
    */
   this.rotation = function(){
     return finalRotationMatrix;
-  }
+  };
 
   // this.start = function(){
 
