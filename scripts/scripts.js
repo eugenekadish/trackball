@@ -127,6 +127,9 @@
   texture.image = new Image(); 
   texture.image.src = "images/icons.jpg";
   
+  /**
+   * Store an image as a 2D texture.
+   */ 
   texture.image.onload = function(){
     
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT); 
@@ -135,7 +138,11 @@
     gl.drawArrays(gl.TRIANGLES, 0, 36);
   }
 
-
+  /**
+   * Event handler of mouse press events for the widget.
+   *
+   * @param event Object representing a mouse press event.
+   */
   scene.onmousedown = function(event){
 
     cursor = t.interpolate(event.clientX, event.clientY);
@@ -144,6 +151,11 @@
     t.push(cursor[0], cursor[1]);
   };
 
+  /**
+   * Event handler of mouse move events for the widget.
+   *
+   * @param event Object representing a mouse move event.
+   */ 
   scene.onmousemove = function(event){
 
     cursor = t.interpolate(event.clientX, event.clientY);
@@ -160,12 +172,22 @@
     gl.drawArrays(gl.TRIANGLES, 0, 36);
   };
 
+  /**
+   * Event handler of mouse release events for the page.
+   *
+   * @param event Object representing a mouse release event.
+   */
   document.onmouseup = function(event){
       
     t.release();
     // t.start();
   };
-
+  
+  /**
+   * Event handler for enabling accurate rotations.
+   *
+   * @param event Object representing a button press event.
+   */
   modeOne.onclick = function(event){
     
     modeOne.setAttribute("disabled", "true");
@@ -178,8 +200,12 @@
     // gl.uniformMatrix4fv(shaderProgram.modelviewUniform, false, temporaryModelviewMatrix);
     gl.drawArrays(gl.TRIANGLES, 0, 36);
   };
-
-  
+ 
+  /**
+   * Event handler for enabling default rotations.
+   *
+   * @param event Object representing a button press event.
+   */
   modeTwo.onclick = function(event){
     
     modeTwo.setAttribute("disabled", "true");
