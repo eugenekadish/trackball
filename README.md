@@ -2,7 +2,9 @@
 
 Wrapper for the implementation of a quaternion to emulate accurate rotations of objects in three dimensions. This module abstracts away the mathematics and provides functionality for emulating many modern computer desktop interactivity features. Additionally, vertex and fragment shaders are provided in the *example* that perform texturing.
 
-The dependencies are the [gl-matrix](https://github.com/toji/gl-matrix) matrix and javascript library, along with the [qunit](http://qunitjs.com) unit testing framework. To run the tests and verify everything is working correctly, navigate to the *runner.html* file in the tests directory with any modern browser. To avoid downloading these packages manually, the command
+##Setup
+
+This package depends on the [gl-matrix](https://github.com/toji/gl-matrix), matrix and JavaScript library. To avoid downloading it manually, the command
 
     bower install
 
@@ -14,7 +16,19 @@ will download the package.
 
 ## Viewing
 
-To checkout how this module can be used, open the contents of the *example* folder after all the dependencies have been successfully downloaded or just peep [demo](http://eugenekadish.github.io/trackball).
+With [grunt-cli](https://github.com/gruntjs/grunt-cli) installed,
+
+    npm install
+
+will retrieve all the [grunt](http://gruntjs.com) dependencies. Then running this application locally is a simple task.
+
+    grunt connect
+
+Just as simple is the command to run the tests.
+
+    grunt qunit
+
+To checkout how this module can be used, open the contents of the *example* folder after all the dependencies have been successfully downloaded or just peep the [demo](http://eugenekadish.github.io/trackball).
 
 ## Documentation
 
@@ -53,25 +67,17 @@ __this.release()__
 
 ## Usage
 
-Include the source file
-
-```html
-   <script src="path/to/trackball.js"></script>
-```
-
-in the page. Typically the functions provided would be used in conjunction with native javascript or [jQuery](http://jquery.com) methods that enable user interaction. Here is a small snippet from the example using the package.
+With all the tests passing and a working example; move on to include this module, either from the *source* or *distribution* folder. Typically the functions provided would be used in conjunction with native javascript or [jQuery](http://jquery.com) methods that enable user interaction. Here is a small snippet from the example using the package.
 
 ```javascript
   
   var scene = document.getElementById('scene');
     . . .
 
-  var t = new Trackball(true);
+  var t = new Trackball(true, scene);
 ```
 
 ```javascript
-  
-  var cursor;
 
   scene.onmousedown = function(event){
 
@@ -80,6 +86,7 @@ in the page. Typically the functions provided would be used in conjunction with 
     // t.stop();
     t.push(cursor[0], cursor[1]);
   };
+    . . . 
 
   scene.onmousemove = function(event){
 
@@ -89,6 +96,7 @@ in the page. Typically the functions provided would be used in conjunction with 
       
       . . .
   };
+    . . . 
 
   document.onmouseup = function(event){
       
