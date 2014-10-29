@@ -15,6 +15,8 @@
     }
   }
 
+  var cursor;
+  
   var windowWidth  = scene.width;
   var windowHeight = scene.height;
 
@@ -119,20 +121,26 @@
   texture.image = new Image(); 
   texture.image.src = "images/icons.jpg";
   
+  /**
+   * Store an image as a 2D texture.
+   */
   texture.image.onload = function(){
     
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT); 
     
     gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, texture.image);    
     gl.drawArrays(gl.TRIANGLES, 0, 36);
-  }
+  };
 
   // Enable click and drag functionality for the triangles in the buffer.
   // var t = new Trackball(true);
   var t = new Trackball(true, scene);  
 
-  var cursor;
-
+  /**
+   * Event handler of mouse press events for the widget.
+   *
+   * @param event Object representing a mouse press event.
+   */
   scene.onmousedown = function(event){
 
     cursor = t.interpolate(event.clientX, event.clientY);
@@ -140,7 +148,12 @@
     // t.stop();
     t.push(cursor[0], cursor[1]);
   };
-
+  
+  /**
+   * Event handler of mouse move events for the widget.
+   *
+   * @param event Object representing a mouse move event.
+   */
   scene.onmousemove = function(event){
 
     cursor = t.interpolate(event.clientX, event.clientY);
@@ -157,6 +170,11 @@
     gl.drawArrays(gl.TRIANGLES, 0, 36);
   };
 
+  /**
+   * Event handler of mouse release events for the widget.
+   *
+   * @param event Object representing a mouse release event.
+   */
   document.onmouseup = function(event){
       
     t.release();
