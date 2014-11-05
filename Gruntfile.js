@@ -7,12 +7,7 @@ module.exports = function(grunt) {
 
     concat: {
       options: {
-        stripBanners: {
-          options: {
-            block: true,
-            line: true
-          }
-        }
+        stripBanners: true
       },
       dist: {
         src: ['source/**/*.js'],
