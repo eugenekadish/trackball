@@ -180,6 +180,13 @@ function Trackball(mode, scene){
     return finalRotationMatrix;
   };
 
+  /**
+   * Sets the way the matrix transformation is modified.
+   */
+  this.setMode = function(m){
+    mode = m;
+  };
+
   // this.start = function(){
 
   //  var xDelta;
