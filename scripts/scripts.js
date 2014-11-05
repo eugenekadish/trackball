@@ -193,12 +193,10 @@
     modeOne.setAttribute("disabled", "true");
     modeTwo.removeAttribute("disabled");
     
-    // t = new Trackball(true, scene);
     t.setMode(true);
  
     gl.clearColor(0.1, 0.1, 0.8, 1.0);
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
-    // gl.uniformMatrix4fv(shaderProgram.modelviewUniform, false, temporaryModelviewMatrix);
     gl.drawArrays(gl.TRIANGLES, 0, 36);
   };
  
@@ -212,12 +210,10 @@
     modeTwo.setAttribute("disabled", "true");
     modeOne.removeAttribute("disabled");    
 
-    // t = new Trackball(false, scene);  
     t.setMode(false);
     
     gl.clearColor(0.8, 0.1, 0.1, 1.0);
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
-    // gl.uniformMatrix4fv(shaderProgram.modelviewUniform, false, temporaryModelviewMatrix);
     gl.drawArrays(gl.TRIANGLES, 0, 36);
  };
 
